@@ -1,5 +1,16 @@
 {
+  "name": "clean-webpack",
+  "version": "1.0.0",
+  "description": "clean web",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "Sylwester K. Mielniczuk - s.mielniczuk@samsung.com",
+  "license": "ISC",
   "devDependencies": {
-    "webpack": "^5.58.2"
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.0"
   }
 }
