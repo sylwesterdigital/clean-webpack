@@ -13,7 +13,22 @@ module.exports = {
     https: true,
     host: 'localhost',
     port: 3030
-  },  
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },      
+    ]
+  },    
   entry: {
     main: path.resolve(__dirname, './src/index.js'),
   },
