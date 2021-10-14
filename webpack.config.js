@@ -29,5 +29,9 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      $: 'webpack-zepto',
+      Zepto: 'webpack-zepto'
+    })     
   ],  
 }
