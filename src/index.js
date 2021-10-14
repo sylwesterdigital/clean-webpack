@@ -3,6 +3,18 @@ console.log("index.js");
 import css from './style.css';
 import * as PIXI from 'pixi.js'
 
+// - ref: https://www.npmjs.com/package/@pixi/basis
+import { BasisLoader } from '@pixi/basis';
+import { Loader } from '@pixi/loaders';
+
+Loader.registerPlugin(BasisLoader);
+
+// Use this if you to use the default CDN url for @pixi/basis
+//BasisLoader.loadTranscoder();
+
+// Use this if you want to serve the transcoder on your own
+BasisLoader.loadTranscoder('./assets/basis_transcoder.js', './assets/basis_transcoder.wasm');
+
 
 // App
 let	 app;
@@ -10,6 +22,7 @@ let	 app;
 //const loader = PIXI.Loader.shared; // PixiJS exposes a premade instance for you to use.
 //or
 const loader = new PIXI.Loader(); // you can also create your own if you want
+
 
 const sprites = {};
 
@@ -24,11 +37,11 @@ function loadAssets() {
 
 
 	// Chainable `add` to enqueue a resource
-	loader.add('shape01', 'assets/textures/png/01.png')
-	      .add('shape02', 'assets/textures/png/02.png')
-	      .add('shape03', 'assets/textures/png/03.png')
-	      .add('shape04', 'assets/textures/png/04.png')
-	      .add('shape05', 'assets/textures/png/05.png')
+	loader.add('shape01', 'assets/textures/basis/01.basis')
+	      .add('shape02', 'assets/textures/basis/02.basis')
+	      .add('shape03', 'assets/textures/basis/03.basis')
+	      .add('shape04', 'assets/textures/basis/04.basis')
+	      .add('shape05', 'assets/textures/basis/05.basis')
 
 	// Chainable `pre` to add a middleware that runs for each resource, *before* loading that resource.
 	// This is useful to implement custom caching modules (using filesystem, indexeddb, memory, etc).
@@ -79,7 +92,7 @@ function addSprites() {
 	console.log("addSprites");
 
 	// create a new Sprite from an image path
-	const bunny = PIXI.Sprite.from(loader.resources.shape01.texture);
+	const bunny = PIXI.Sprite.from(loader.resources.shape02.texture);
 
 	// center the sprite's anchor point
 	bunny.anchor.set(0.5);
