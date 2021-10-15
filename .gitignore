@@ -7,7 +7,7 @@ design/
 *.ai
 *.mp4
 *.pdf
-
+*.sh
 
 
 # Logs
