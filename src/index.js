@@ -33,8 +33,8 @@ let app;
 //or
 //const loader = new PIXI.Loader(); // you can also create your own if you want
 
-const sprites = {};
-let bunny;
+const sprites = [];
+
 // Colors
 const cols_blue1 = 0x132CAD
 
@@ -91,15 +91,20 @@ function addSprites(resources) {
         // for testing switch between shape01 and shape02
 
 
-    bunny = Sprite.from(resources["shape02"].texture);
+    const bunny = Sprite.from(resources["shape02"].texture);
 
     // center the sprite's anchor point
     bunny.anchor.set(0.5);
+
     // move the sprite to the center of the screen
     bunny.x = app.screen.width / 2;
     bunny.y = app.screen.height / 2;
-    console.log(bunny.position)
+    console.log("bunny: ",bunny.position, bunny.width, bunny.height)
     app.stage.addChild(bunny);
+
+
+    sprites.push(bunny)
+
     // Listen for animate update
     app.ticker.add((delta) => {
         // just for fun, let's rotate mr rabbit a little
